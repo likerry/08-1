@@ -1,0 +1,181 @@
+/* 區塊一開始：全域及背景圖設計。 */
+/* 1. 全部字體放大1.5倍。
+   2. 頁面底色設為圖片，皆使用 cover 置中並柔化。*/
+body {
+  font-family: "Microsoft JhengHei", Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #1a1a1a;
+  box-sizing: border-box;
+  font-size: 1.5em; /* 放大全部字體1.5倍 */
+  /* 背景圖設計：居中、cover、柔和漸層遮罩提高可讀性
+  background-image: url("https://images.pexels.com/photos/19225701/pexels-photo-19225701.jpeg");*/
+  background-image: url("https://images.pexels.com/photos/18101772/pexels-photo-18101772.jpeg");
+
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  /* 疊加半透明白色漸層（可改善文字可讀性） */
+  position: relative;
+}
+body::before {
+  content: "";
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  /* 白色透明遮罩（0.55透明度） */
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.6) 0%,
+    rgba(255, 255, 255, 0.55) 100%
+  );
+  z-index: -1;
+}
+/* 區塊一結束 */
+
+/* Header開始 */
+header {
+  background: linear-gradient(90deg, #ffd6e0, #ffe5b4);
+  padding: 1.5rem 0 1rem 0;
+  text-align: center;
+}
+header h1 {
+  margin: 0;
+  font-size: 2rem;
+  color: #ac3973;
+}
+#today-date {
+  margin: 0.5rem 0 0 0;
+  font-size: 1.1rem;
+  color: #7e7e7e;
+}
+/* Header結束 */
+
+/* 區塊二開始：block1 粉紅/藍綠 */
+.block1 {
+  background: linear-gradient(90deg, #ffdee9 40%, #b5fffc 100%);
+  border-left: 6px solid #ff81a3;
+  padding: 1.2rem 2rem;
+  margin: 1.5rem auto 1rem auto;
+  max-width: 600px;
+  border-radius: 8px;
+}
+.block1 h2 {
+  color: #ff5499;
+}
+/* 區塊二結束 */
+
+/* 區塊三開始：block2 藍紫色 */
+.block2 {
+  background: linear-gradient(90deg, #dad4ec 40%, #99c2ff 100%);
+  border-left: 6px solid #8c8cff;
+  padding: 1.2rem 2rem;
+  margin: 1.5rem auto 1rem auto;
+  max-width: 600px;
+  border-radius: 8px;
+}
+.block2 h2 {
+  color: #3a3cd7;
+}
+/* 區塊三結束 */
+
+/* 區塊四開始：block3 綠色/黃色 */
+.block3 {
+  background: linear-gradient(90deg, #faffd1 40%, #a1ffce 100%);
+  border-left: 6px solid #5edb8e;
+  padding: 1.2rem 2rem;
+  margin: 1.5rem auto 1rem auto;
+  max-width: 600px;
+  border-radius: 8px;
+}
+.block3 h2 {
+  color: #278d3b;
+}
+form > div {
+  margin-bottom: 0.6rem;
+}
+input[type="text"],
+input[type="date"],
+input[type="number"] {
+  padding: 0.4rem;
+  border: 1px solid #8cd790;
+  border-radius: 4px;
+  width: 60%;
+  font-size: 1rem;
+  background: rgba(255, 255, 255, 0.8);
+}
+button {
+  background-color: #40b67c;
+  color: white;
+  font-size: 1rem;
+  padding: 0.5rem 1.2rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+button:hover {
+  background-color: #1b7e49;
+}
+#result {
+  font-weight: bold;
+  margin-top: 1rem;
+  color: #18914f;
+}
+/* 區塊四結束 */
+
+/* 區塊五開始：footer 設計及區塊樣式 */
+footer {
+  margin-top: 2rem;
+  text-align: center;
+  padding: 1rem 0;
+  background: linear-gradient(90deg, #e6e6fa 30%, #fafad2 100%);
+  font-size: 1.1rem;
+  color: #888088;
+  border-top: 2px solid #bbb;
+}
+/* 區塊五結束 */
+
+/* 響應式設計：手機/平板/桌機分別放大字型 */
+@media (max-width: 375px) {
+  html {
+    font-size: calc(14px * 1.5);
+  }
+  .block,
+  header,
+  footer {
+    padding: 1rem 0.5rem;
+  }
+  input,
+  button {
+    width: 90%;
+  }
+}
+@media (min-width: 376px) and (max-width: 768px) {
+  html {
+    font-size: calc(15px * 1.5);
+  }
+  .block,
+  header,
+  footer {
+    padding: 1.2rem 1rem;
+  }
+  input,
+  button {
+    width: 80%;
+  }
+}
+@media (min-width: 769px) {
+  html {
+    font-size: calc(16px * 1.5);
+  }
+  input,
+  button {
+    width: 65%;
+  }
+}
